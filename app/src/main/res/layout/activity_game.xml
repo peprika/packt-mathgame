@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textPartA"
+        android:text="TextView"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@+id/textOperator"
+        style="@style/GameScreenQuestion"/>
+
+    <TextView
+        android:id="@+id/textOperator"
+        android:text="TextView2"
+        android:layout_alignBaseline="@id/textPartA"
+        android:layout_alignBottom="@id/textPartA"
+        android:layout_centerHorizontal="true"
+        style="@style/GameScreenQuestion"/>
+
+    <TextView
+        android:id="@+id/textPartB"
+        android:text="TextView3"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBaseline="@id/textPartA"
+        android:layout_alignBottom="@id/textPartA"
+        android:layout_toRightOf="@id/textOperator"
+        style="@style/GameScreenQuestion"/>
+
+    <TextView
+        android:id="@+id/equals_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textOperator"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:textSize="96dp"
+        android:text="@string/equals_sign"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_marginTop="84dp"
+        android:text="Button1"
+        style="@style/GameScreenButtons"
+        android:layout_below="@+id/equals_sign"
+        android:layout_alignLeft="@+id/textPartA"
+        android:layout_alignStart="@+id/textPartA"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:text="Button2"
+        style="@style/GameScreenButtons"
+        android:layout_alignBaseline="@id/button1"
+        android:layout_alignBottom="@id/button1"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBaseline="@id/button1"
+        android:layout_alignBottom="@id/button1"
+        android:text="Button3"
+        android:layout_toRightOf="@id/button2"
+        style="@style/GameScreenButtons"/>
+</RelativeLayout>

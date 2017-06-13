@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 /**
  * Created by Riku Pepponen on 12.6.2017.
  * (riku.pepponen@gmail.com)
@@ -34,12 +36,6 @@ public class GameActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        // Variable declarations
-        int partA = 9;
-        int partB = 9;
-        correctAnswer = partA * partB;
-        int wrongAnswer1 = correctAnswer - 1;
-        int wrongAnswer2 = correctAnswer + 1;
 
         // UI element declarations
         textObjectPartA = (TextView)findViewById(R.id.textPartA);
@@ -52,18 +48,15 @@ public class GameActivity extends Activity implements View.OnClickListener {
         textObjectLevel = (TextView)findViewById(R.id.textLevel);
 
         // Set the UI elements' texts
-        textObjectPartA.setText("" + partA);
-        textObjectPartB.setText("" + partB);
         textObjectOperator.setText("*");
-
-        buttonObjectChoice1.setText("" + correctAnswer);
-        buttonObjectChoice2.setText("" + wrongAnswer1);
-        buttonObjectChoice3.setText("" + wrongAnswer2);
 
         // Set some listeners
         buttonObjectChoice1.setOnClickListener(this);
         buttonObjectChoice2.setOnClickListener(this);
         buttonObjectChoice3.setOnClickListener(this);
+
+
+        setQuestion();
     }
 
     @Override
@@ -74,16 +67,19 @@ public class GameActivity extends Activity implements View.OnClickListener {
             case R.id.buttonChoice1:
                 answerGiven = Integer.parseInt("" + buttonObjectChoice1.getText());
                 checkAnswer();
+                setQuestion();
                 break;
 
             case R.id.buttonChoice2:
                 answerGiven = Integer.parseInt("" + buttonObjectChoice2.getText());
                 checkAnswer();
+                setQuestion();
                 break;
 
             case R.id.buttonChoice3:
                 answerGiven = Integer.parseInt("" + buttonObjectChoice3.getText());
                 checkAnswer();
+                setQuestion();
                 break;
         }
     }
@@ -99,5 +95,51 @@ public class GameActivity extends Activity implements View.OnClickListener {
                     "Sorry, that's wrong",
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void setQuestion () {
+
+        // Difficulty increases with level
+        int numberRange = currentLevel * 3;
+
+        // Get numbers for the question
+        Random randInt = new Random();
+        int partA = randInt.nextInt(numberRange);
+        partA++; // no zero values
+        int partB = randInt.nextInt(numberRange);
+        partB++; // no zero values
+
+        correctAnswer = partA * partB;
+        int wrongAnswer1 = correctAnswer - 2;
+        int wrongAnswer2 = correctAnswer + 2;
+
+        // Set the textview texts
+        textObjectPartA.setText(""+partA);
+        textObjectPartB.setText(""+partB);
+
+        // Set the order for the correct/incorrect answer options shown
+        int buttonLayout = randInt.nextInt(3);
+        switch (buttonLayout) {
+
+            case 0:
+                buttonObjectChoice1.setText(""+correctAnswer);
+                buttonObjectChoice2.setText(""+wrongAnswer1);
+                buttonObjectChoice3.setText(""+wrongAnswer2);
+                break;
+
+            case 1:
+                buttonObjectChoice2.setText(""+correctAnswer);
+                buttonObjectChoice3.setText(""+wrongAnswer1);
+                buttonObjectChoice1.setText(""+wrongAnswer2);
+                break;
+
+            case 2:
+                buttonObjectChoice3.setText(""+correctAnswer);
+                buttonObjectChoice1.setText(""+wrongAnswer1);
+                buttonObjectChoice2.setText(""+wrongAnswer2);
+                break;
+
+        }
+
     }
 }

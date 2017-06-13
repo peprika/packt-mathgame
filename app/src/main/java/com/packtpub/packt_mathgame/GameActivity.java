@@ -29,6 +29,7 @@ public class GameActivity extends Activity {
         // UI element declarations
         TextView textObjectPartA = (TextView)findViewById(R.id.textPartA);
         TextView textObjectPartB = (TextView)findViewById(R.id.textPartB);
+        TextView textObjectOperator = (TextView)findViewById(R.id.textOperator);
         Button buttonObjectChoice1 = (Button)findViewById(R.id.buttonChoice1);
         Button buttonObjectChoice2 = (Button)findViewById(R.id.buttonChoice2);
         Button buttonObjectChoice3 = (Button)findViewById(R.id.buttonChoice3);
@@ -36,6 +37,7 @@ public class GameActivity extends Activity {
         // Set the UI elements' texts
         textObjectPartA.setText("" + partA);
         textObjectPartB.setText("" + partB);
+        textObjectOperator.setText("*");
 
         buttonObjectChoice1.setText("" + correctAnswer);
         buttonObjectChoice2.setText("" + wrongAnswer1);

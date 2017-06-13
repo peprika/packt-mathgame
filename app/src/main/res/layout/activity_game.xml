@@ -6,14 +6,14 @@
 
     <TextView
         android:id="@+id/textPartA"
-        android:text="TextView"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_toLeftOf="@+id/textOperator"
+        android:layout_toStartOf="@+id/textOperator"
         style="@style/GameScreenQuestion"/>
 
     <TextView
         android:id="@+id/textOperator"
-        android:text="TextView2"
         android:layout_alignBaseline="@id/textPartA"
         android:layout_alignBottom="@id/textPartA"
         android:layout_centerHorizontal="true"
@@ -21,46 +21,49 @@
 
     <TextView
         android:id="@+id/textPartB"
-        android:text="TextView3"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:layout_alignBaseline="@id/textPartA"
         android:layout_alignBottom="@id/textPartA"
         android:layout_toRightOf="@id/textOperator"
+        android:layout_toEndOf="@id/textOperator"
         style="@style/GameScreenQuestion"/>
 
     <TextView
         android:id="@+id/equals_sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textOperator"
+        android:layout_below="@id/textOperator"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:textSize="96dp"
+        android:textSize="96sp"
         android:text="@string/equals_sign"/>
 
     <Button
         android:id="@+id/buttonChoice1"
-        android:layout_marginTop="72dp"
-        android:text="Button1"
-        style="@style/GameScreenButtons"
-        android:layout_below="@+id/equals_sign"
-        android:layout_alignLeft="@+id/textPartA"
-        android:layout_alignStart="@+id/textPartA"/>
+        android:layout_marginTop="48dp"
+        android:layout_below="@id/equals_sign"
+        android:layout_toLeftOf="@+id/buttonChoice2"
+        android:layout_toStartOf="@id/buttonChoice2"
+        android:layout_marginRight="24dp"
+        android:layout_marginEnd="24dp"
+        style="@style/GameScreenButtons"/>
 
     <Button
         android:id="@+id/buttonChoice2"
-        android:text="Button2"
-        style="@style/GameScreenButtons"
         android:layout_alignBaseline="@id/buttonChoice1"
         android:layout_alignBottom="@id/buttonChoice1"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        style="@style/GameScreenButtons"/>
 
     <Button
         android:id="@+id/buttonChoice3"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:layout_alignBaseline="@id/buttonChoice1"
         android:layout_alignBottom="@id/buttonChoice1"
-        android:text="Button3"
         android:layout_toRightOf="@id/buttonChoice2"
+        android:layout_toEndOf="@id/buttonChoice2"
         style="@style/GameScreenButtons"/>
+
 </RelativeLayout>

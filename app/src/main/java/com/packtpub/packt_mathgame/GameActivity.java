@@ -30,6 +30,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
     int answerGiven;
     int currentScore = 0;
     int currentLevel = 1;
+    boolean correctTrueOrFalse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +50,15 @@ public class GameActivity extends Activity implements View.OnClickListener {
 
         // Set the UI elements' texts
         textObjectOperator.setText("*");
+        textObjectScore.setText(R.string.score + currentScore);
+        textObjectLevel.setText(R.string.level + currentLevel);
 
         // Set some listeners
         buttonObjectChoice1.setOnClickListener(this);
         buttonObjectChoice2.setOnClickListener(this);
         buttonObjectChoice3.setOnClickListener(this);
 
-
+        // Give the user their first question
         setQuestion();
     }
 
@@ -66,39 +69,41 @@ public class GameActivity extends Activity implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.buttonChoice1:
                 answerGiven = Integer.parseInt("" + buttonObjectChoice1.getText());
-                checkAnswer();
-                setQuestion();
                 break;
 
             case R.id.buttonChoice2:
                 answerGiven = Integer.parseInt("" + buttonObjectChoice2.getText());
-                checkAnswer();
-                setQuestion();
                 break;
 
             case R.id.buttonChoice3:
                 answerGiven = Integer.parseInt("" + buttonObjectChoice3.getText());
-                checkAnswer();
-                setQuestion();
                 break;
         }
+
+        // On every click:
+        // Check the answer, update score/level, give the user a new question
+        checkAnswer(answerGiven);
+        updateScoreAndLevel(answerGiven);
+        setQuestion();
     }
 
     // Check if it's the correct answer and show a toast
-    public void checkAnswer() {
+    public boolean checkAnswer(int answerGiven) {
         if(answerGiven == correctAnswer) {
             Toast.makeText(getApplicationContext(),
                     "Well done!",
                     Toast.LENGTH_LONG).show();
+                    correctTrueOrFalse = true;
         } else {
             Toast.makeText(getApplicationContext(),
                     "Sorry, that's wrong",
                     Toast.LENGTH_LONG).show();
+                    correctTrueOrFalse = false;
         }
+        return correctTrueOrFalse;
     }
 
-    public void setQuestion () {
-
+    private void setQuestion () {
         // Difficulty increases with level
         int numberRange = currentLevel * 3;
 
@@ -138,8 +143,24 @@ public class GameActivity extends Activity implements View.OnClickListener {
                 buttonObjectChoice1.setText(""+wrongAnswer1);
                 buttonObjectChoice2.setText(""+wrongAnswer2);
                 break;
+        }
+    }
 
+    private void updateScoreAndLevel(int answerGiven) {
+        // If the answer is correct, increase score
+        // If the answer is incorrect, set score to 0 and level to 1;
+        if(checkAnswer(answerGiven)) {
+            for(int i = 0; i <= currentLevel; i++) {
+                currentScore = currentScore + i;
+            }
+            currentLevel++;
+        } else {
+            currentScore = 0;
+            currentLevel = 1;
         }
 
+        // Update the textviews
+        textObjectScore.setText("Score: " + currentScore);
+        textObjectLevel.setText("Level: " + currentLevel);
     }
 }

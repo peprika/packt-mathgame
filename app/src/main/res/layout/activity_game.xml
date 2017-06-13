@@ -68,7 +68,6 @@
 
     <TextView
         android:id="@+id/textScore"
-        android:text="Score: 000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textLevel"
@@ -78,7 +77,6 @@
 
     <TextView
         android:id="@+id/textLevel"
-        android:text="Level: 00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

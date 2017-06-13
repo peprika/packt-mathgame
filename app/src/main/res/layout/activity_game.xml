@@ -66,4 +66,24 @@
         android:layout_toEndOf="@id/buttonChoice2"
         style="@style/GameScreenButtons"/>
 
+    <TextView
+        android:id="@+id/textScore"
+        android:text="Score: 000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textLevel"
+        android:layout_alignBottom="@+id/textLevel"
+        android:layout_toLeftOf="@+id/buttonChoice2"
+        android:layout_toStartOf="@+id/buttonChoice2"/>
+
+    <TextView
+        android:id="@+id/textLevel"
+        android:text="Level: 00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/buttonChoice2"
+        android:layout_toRightOf="@+id/buttonChoice2"
+        android:layout_toEndOf="@+id/buttonChoice2"/>
+
 </RelativeLayout>

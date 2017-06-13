@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 /**
  * Created by Riku Pepponen on 12.6.2017.
  * (riku.pepponen@gmail.com)
@@ -50,6 +48,8 @@ public class GameActivity extends Activity implements View.OnClickListener {
         buttonObjectChoice1 = (Button)findViewById(R.id.buttonChoice1);
         buttonObjectChoice2 = (Button)findViewById(R.id.buttonChoice2);
         buttonObjectChoice3 = (Button)findViewById(R.id.buttonChoice3);
+        textObjectScore = (TextView)findViewById(R.id.textScore);
+        textObjectLevel = (TextView)findViewById(R.id.textLevel);
 
         // Set the UI elements' texts
         textObjectPartA.setText("" + partA);

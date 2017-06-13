@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
+import android.widget.Toast;
 
 /**
  * Created by Riku Pepponen on 12.6.2017.
@@ -58,17 +57,46 @@ public class GameActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        int answerGiven = 0;
+
         switch (view.getId()) {
             case R.id.buttonChoice1:
-                // Button 1 stuff goes here
+                answerGiven = Integer.parseInt("" + buttonObjectChoice1.getText());
+                if(answerGiven == correctAnswer) {
+                    Toast.makeText(getApplicationContext(),
+                    "Well done!",
+                    Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                    "Sorry, that's wrong",
+                    Toast.LENGTH_LONG).show();
+                }
                 break;
 
             case R.id.buttonChoice2:
-                // Button 2 stuff goes here
+                answerGiven = Integer.parseInt("" + buttonObjectChoice2.getText());
+                if(answerGiven == correctAnswer) {
+                    Toast.makeText(getApplicationContext(),
+                            "Well done!",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            "Sorry, that's wrong",
+                            Toast.LENGTH_LONG).show();
+                }
                 break;
 
             case R.id.buttonChoice3:
-                // Button 3 stuff goes here
+                answerGiven = Integer.parseInt("" + buttonObjectChoice3.getText());
+                if(answerGiven == correctAnswer) {
+                    Toast.makeText(getApplicationContext(),
+                            "Well done!",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            "Sorry, that's wrong",
+                            Toast.LENGTH_LONG).show();
+                }
                 break;
         }
     }

@@ -159,7 +159,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
         }
 
         // Update the textviews
-        textObjectScore.setText("Score: " + currentScore);
-        textObjectLevel.setText("Level: " + currentLevel);
+        textObjectScore.setText(getResources().getString(R.string.score) + " " + currentScore);
+        textObjectLevel.setText(getResources().getString(R.string.level) + " " + currentLevel);
     }
 }

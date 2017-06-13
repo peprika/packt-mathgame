@@ -39,7 +39,7 @@
         android:text="@string/equals_sign"/>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonChoice1"
         android:layout_marginTop="72dp"
         android:text="Button1"
         style="@style/GameScreenButtons"
@@ -48,19 +48,19 @@
         android:layout_alignStart="@+id/textPartA"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonChoice2"
         android:text="Button2"
         style="@style/GameScreenButtons"
-        android:layout_alignBaseline="@id/button1"
-        android:layout_alignBottom="@id/button1"
+        android:layout_alignBaseline="@id/buttonChoice1"
+        android:layout_alignBottom="@id/buttonChoice1"
         android:layout_centerHorizontal="true"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonChoice3"
         android:layout_marginLeft="20dp"
-        android:layout_alignBaseline="@id/button1"
-        android:layout_alignBottom="@id/button1"
+        android:layout_alignBaseline="@id/buttonChoice1"
+        android:layout_alignBottom="@id/buttonChoice1"
         android:text="Button3"
-        android:layout_toRightOf="@id/button2"
+        android:layout_toRightOf="@id/buttonChoice2"
         style="@style/GameScreenButtons"/>
 </RelativeLayout>

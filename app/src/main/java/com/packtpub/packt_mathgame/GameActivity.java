@@ -32,5 +32,13 @@ public class GameActivity extends Activity {
         Button buttonObjectChoice1 = (Button)findViewById(R.id.buttonChoice1);
         Button buttonObjectChoice2 = (Button)findViewById(R.id.buttonChoice2);
         Button buttonObjectChoice3 = (Button)findViewById(R.id.buttonChoice3);
+
+        // Set the UI elements' texts
+        textObjectPartA.setText("" + partA);
+        textObjectPartB.setText("" + partB);
+
+        buttonObjectChoice1.setText("" + correctAnswer);
+        buttonObjectChoice2.setText("" + wrongAnswer1);
+        buttonObjectChoice3.setText("" + wrongAnswer2);
     }
 }

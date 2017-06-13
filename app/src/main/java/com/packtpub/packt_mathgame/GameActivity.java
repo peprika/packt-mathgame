@@ -16,6 +16,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
 
     // Some basic declarations
     int correctAnswer;
+    int answerGiven;
     Button buttonObjectChoice1;
     Button buttonObjectChoice2;
     Button buttonObjectChoice3;
@@ -57,47 +58,36 @@ public class GameActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        int answerGiven = 0;
 
+        // Which button did the user click?
         switch (view.getId()) {
             case R.id.buttonChoice1:
                 answerGiven = Integer.parseInt("" + buttonObjectChoice1.getText());
-                if(answerGiven == correctAnswer) {
-                    Toast.makeText(getApplicationContext(),
-                    "Well done!",
-                    Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                    "Sorry, that's wrong",
-                    Toast.LENGTH_LONG).show();
-                }
+                checkAnswer();
                 break;
 
             case R.id.buttonChoice2:
                 answerGiven = Integer.parseInt("" + buttonObjectChoice2.getText());
-                if(answerGiven == correctAnswer) {
-                    Toast.makeText(getApplicationContext(),
-                            "Well done!",
-                            Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "Sorry, that's wrong",
-                            Toast.LENGTH_LONG).show();
-                }
+                checkAnswer();
                 break;
 
             case R.id.buttonChoice3:
                 answerGiven = Integer.parseInt("" + buttonObjectChoice3.getText());
-                if(answerGiven == correctAnswer) {
-                    Toast.makeText(getApplicationContext(),
-                            "Well done!",
-                            Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "Sorry, that's wrong",
-                            Toast.LENGTH_LONG).show();
-                }
+                checkAnswer();
                 break;
+        }
+    }
+
+    // Check if it's the correct answer and show a toast
+    public void checkAnswer() {
+        if(answerGiven == correctAnswer) {
+            Toast.makeText(getApplicationContext(),
+                    "Well done!",
+                    Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(),
+                    "Sorry, that's wrong",
+                    Toast.LENGTH_LONG).show();
         }
     }
 }

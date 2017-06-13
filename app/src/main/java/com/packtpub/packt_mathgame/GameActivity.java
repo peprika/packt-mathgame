@@ -2,6 +2,7 @@ package com.packtpub.packt_mathgame;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,7 +13,7 @@ import org.w3c.dom.Text;
  * (riku.pepponen@gmail.com)
  */
 
-public class GameActivity extends Activity {
+public class GameActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +43,27 @@ public class GameActivity extends Activity {
         buttonObjectChoice1.setText("" + correctAnswer);
         buttonObjectChoice2.setText("" + wrongAnswer1);
         buttonObjectChoice3.setText("" + wrongAnswer2);
+
+        // Set some listeners
+        buttonObjectChoice1.setOnClickListener(this);
+        buttonObjectChoice2.setOnClickListener(this);
+        buttonObjectChoice3.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.buttonChoice1:
+                // Button 1 stuff goes here
+                break;
+
+            case R.id.buttonChoice2:
+                // Button 2 stuff goes here
+                break;
+
+            case R.id.buttonChoice3:
+                // Button 3 stuff goes here
+                break;
+        }
     }
 }

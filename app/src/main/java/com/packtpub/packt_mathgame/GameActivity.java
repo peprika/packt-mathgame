@@ -37,7 +37,6 @@ public class GameActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-
         // UI element declarations
         textObjectPartA = (TextView)findViewById(R.id.textPartA);
         textObjectPartB = (TextView)findViewById(R.id.textPartB);
@@ -50,8 +49,8 @@ public class GameActivity extends Activity implements View.OnClickListener {
 
         // Set the UI elements' texts
         textObjectOperator.setText("*");
-        textObjectScore.setText(R.string.score + currentScore);
-        textObjectLevel.setText(R.string.level + currentLevel);
+        textObjectScore.setText(getResources().getString(R.string.score) + " " + currentScore);
+        textObjectLevel.setText(getResources().getString(R.string.level) + " " + currentLevel);
 
         // Set some listeners
         buttonObjectChoice1.setOnClickListener(this);

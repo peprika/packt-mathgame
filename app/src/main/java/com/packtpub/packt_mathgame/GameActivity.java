@@ -15,6 +15,12 @@ import org.w3c.dom.Text;
 
 public class GameActivity extends Activity implements View.OnClickListener {
 
+    // Some basic declarations
+    int correctAnswer;
+    Button buttonObjectChoice1;
+    Button buttonObjectChoice2;
+    Button buttonObjectChoice3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +29,7 @@ public class GameActivity extends Activity implements View.OnClickListener {
         // Variable declarations
         int partA = 9;
         int partB = 9;
-        int correctAnswer = partA * partB;
+        correctAnswer = partA * partB;
         int wrongAnswer1 = correctAnswer - 1;
         int wrongAnswer2 = correctAnswer + 1;
 
@@ -31,9 +37,9 @@ public class GameActivity extends Activity implements View.OnClickListener {
         TextView textObjectPartA = (TextView)findViewById(R.id.textPartA);
         TextView textObjectPartB = (TextView)findViewById(R.id.textPartB);
         TextView textObjectOperator = (TextView)findViewById(R.id.textOperator);
-        Button buttonObjectChoice1 = (Button)findViewById(R.id.buttonChoice1);
-        Button buttonObjectChoice2 = (Button)findViewById(R.id.buttonChoice2);
-        Button buttonObjectChoice3 = (Button)findViewById(R.id.buttonChoice3);
+        buttonObjectChoice1 = (Button)findViewById(R.id.buttonChoice1);
+        buttonObjectChoice2 = (Button)findViewById(R.id.buttonChoice2);
+        buttonObjectChoice3 = (Button)findViewById(R.id.buttonChoice3);
 
         // Set the UI elements' texts
         textObjectPartA.setText("" + partA);

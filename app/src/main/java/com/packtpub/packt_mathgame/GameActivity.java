@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by Riku Pepponen on 12.6.2017.
  * (riku.pepponen@gmail.com)
@@ -15,11 +17,19 @@ import android.widget.Toast;
 public class GameActivity extends Activity implements View.OnClickListener {
 
     // Some basic declarations
-    int correctAnswer;
-    int answerGiven;
     Button buttonObjectChoice1;
     Button buttonObjectChoice2;
     Button buttonObjectChoice3;
+    TextView textObjectPartA;
+    TextView textObjectPartB;
+    TextView textObjectOperator;
+    TextView textObjectScore;
+    TextView textObjectLevel;
+
+    int correctAnswer;
+    int answerGiven;
+    int currentScore = 0;
+    int currentLevel = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +44,9 @@ public class GameActivity extends Activity implements View.OnClickListener {
         int wrongAnswer2 = correctAnswer + 1;
 
         // UI element declarations
-        TextView textObjectPartA = (TextView)findViewById(R.id.textPartA);
-        TextView textObjectPartB = (TextView)findViewById(R.id.textPartB);
-        TextView textObjectOperator = (TextView)findViewById(R.id.textOperator);
+        textObjectPartA = (TextView)findViewById(R.id.textPartA);
+        textObjectPartB = (TextView)findViewById(R.id.textPartB);
+        textObjectOperator = (TextView)findViewById(R.id.textOperator);
         buttonObjectChoice1 = (Button)findViewById(R.id.buttonChoice1);
         buttonObjectChoice2 = (Button)findViewById(R.id.buttonChoice2);
         buttonObjectChoice3 = (Button)findViewById(R.id.buttonChoice3);
